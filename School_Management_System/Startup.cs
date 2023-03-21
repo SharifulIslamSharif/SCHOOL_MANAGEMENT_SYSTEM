@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using School_Management_System.Data;
+using School_Management_System.Service;
+using School_Management_System.Service.Interface;
 
 namespace School_Management_System
 {
@@ -35,8 +37,8 @@ namespace School_Management_System
             services.AddDbContext<ApplicationDbContext>(
             options => options.UseSqlServer("name=ConnectionStrings:DbConnection"));
 
-            //services.AddScoped<IStudentService, StudentService>();
-            //services.AddScoped<IMasterService, MasterService>();
+            services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<IMasterService, MasterService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSession(options =>
