@@ -33,7 +33,10 @@ namespace School_Management_System.Data
         public DbSet<Religion> religions { get; set; }
         public DbSet<BookName> bookNames { get; set; }
 
+        #region ERP User Manage
+        public DbSet<UserType> UserTypes { get; set; }
 
+        #endregion
     }
 
 

@@ -38,6 +38,17 @@ namespace School_Management_System
             //services.AddScoped<IStudentService, StudentService>();
             //services.AddScoped<IMasterService, MasterService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session";
+                options.IdleTimeout = TimeSpan.FromHours(24);
+                options.Cookie.IsEssential = true;
+            });
+
+            services.AddHttpContextAccessor();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
